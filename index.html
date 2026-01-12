@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIRTUAL THEATER // A NEW MEDIUM</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-pink-base: #fff0f3;
@@ -14,8 +14,12 @@
             --deep-pink: #fb6f92;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Lucida Console', 'Monaco', monospace;
+            font-family: 'Xanh Mono', monospace;
             background-color: var(--bg-pink-base);
             color: var(--text-dark);
             margin: 0;
@@ -25,13 +29,14 @@
         }
 
         h1, h2, h3, h4, .font-mono-bold {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            letter-spacing: -0.05em;
+            font-family: 'Xanh Mono', monospace;
+            font-weight: 400;
+            letter-spacing: -0.02em;
         }
 
         .hero-fullscreen {
             height: 100vh;
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -40,14 +45,33 @@
             border-bottom: 2px solid var(--text-dark);
             position: relative;
             overflow: hidden;
+            padding: 20px;
         }
 
         .giant-title {
-            font-size: 15vw;
-            line-height: 0.85;
+            font-size: 8.5vw;
+            line-height: 1;
             text-transform: uppercase;
             z-index: 10;
             pointer-events: none;
+            white-space: nowrap;
+            width: 95%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .giant-title span {
+            display: block;
+        }
+
+        /* Mobile: stack vertically */
+        @media (max-width: 768px) {
+            .giant-title {
+                font-size: 14vw;
+                white-space: normal;
+            }
         }
 
         .bg-blobs {
@@ -221,8 +245,8 @@
 
         .stat-number {
             font-size: 48px;
-            font-weight: 700;
-            font-family: 'Space Mono', monospace;
+            font-weight: 400;
+            font-family: 'Xanh Mono', monospace;
             line-height: 1;
         }
 
@@ -231,6 +255,310 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* ================================ */
+        /* COMPREHENSIVE MOBILE RESPONSIVE  */
+        /* ================================ */
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .chapter-number {
+                font-size: 120px;
+                right: -10px;
+                top: -30px;
+            }
+
+            .quote-large {
+                font-size: 22px;
+                padding-left: 20px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            /* Navigation */
+            nav {
+                padding: 15px 20px !important;
+                font-size: 9px !important;
+            }
+
+            nav > div:first-child {
+                font-size: 8px;
+            }
+
+            /* Hero Section */
+            .hero-fullscreen {
+                padding: 60px 15px 30px;
+                justify-content: center;
+            }
+
+            .hero-fullscreen .absolute.top-1\/4 {
+                top: 15%;
+                font-size: 9px !important;
+                padding: 0 20px;
+            }
+
+            .hero-fullscreen .absolute.bottom-32 {
+                bottom: 15%;
+                padding: 0 20px;
+            }
+
+            .hero-fullscreen .absolute.bottom-32 p {
+                font-size: 12px !important;
+            }
+
+            .hero-fullscreen .absolute.bottom-8 {
+                bottom: 5%;
+            }
+
+            /* Buttons */
+            .btn-minimal, .btn-outline {
+                padding: 12px 24px;
+                font-size: 11px;
+            }
+
+            /* Sections */
+            section {
+                padding-top: 60px !important;
+                padding-bottom: 60px !important;
+            }
+
+            section .px-6 {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            /* Chapter Headers */
+            .chapter-number {
+                font-size: 80px;
+                position: static;
+                opacity: 0.08;
+                margin-bottom: -40px;
+            }
+
+            h2.text-6xl, h2.text-8xl {
+                font-size: 32px !important;
+                line-height: 1.1 !important;
+            }
+
+            h2.text-5xl, h2.text-7xl {
+                font-size: 28px !important;
+                line-height: 1.1 !important;
+            }
+
+            h3.text-4xl, h3.text-3xl {
+                font-size: 22px !important;
+            }
+
+            h4.text-2xl {
+                font-size: 18px !important;
+            }
+
+            /* Paragraphs */
+            .text-xl {
+                font-size: 16px !important;
+            }
+
+            .text-lg {
+                font-size: 14px !important;
+            }
+
+            .prose-section {
+                font-size: 14px;
+            }
+
+            /* Quotes */
+            .quote-large {
+                font-size: 18px;
+                padding-left: 15px;
+                margin: 30px 0;
+            }
+
+            /* Grids - Stack on mobile */
+            .grid.lg\:grid-cols-2,
+            .grid.lg\:grid-cols-3,
+            .grid.md\:grid-cols-2,
+            .grid.md\:grid-cols-3,
+            .grid.md\:grid-cols-4,
+            .grid.md\:grid-cols-5,
+            .grid.lg\:grid-cols-4 {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            /* Stat boxes */
+            .stat-box {
+                padding: 20px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            /* Highlight boxes */
+            .highlight-box {
+                padding: 20px;
+                margin: 25px 0;
+            }
+
+            /* Image placeholders */
+            .image-placeholder {
+                min-height: 200px;
+            }
+
+            /* Video container */
+            .video-container {
+                margin: 0 -20px;
+                width: calc(100% + 40px);
+            }
+
+            /* Timeline */
+            .timeline-item {
+                padding-left: 25px;
+                padding-bottom: 25px;
+            }
+
+            /* Project headers - trilogy */
+            .flex.items-center.gap-4 {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 10px !important;
+            }
+
+            .flex.items-center.gap-4 .text-8xl {
+                font-size: 48px !important;
+            }
+
+            .flex.items-center.gap-4 h3 {
+                font-size: 28px !important;
+            }
+
+            /* Tags */
+            .flex.flex-wrap.gap-3 {
+                gap: 8px !important;
+            }
+
+            .flex.flex-wrap.gap-3 span {
+                font-size: 9px !important;
+                padding: 4px 8px !important;
+            }
+
+            /* Button groups */
+            .flex.gap-4 {
+                flex-direction: column;
+                gap: 12px !important;
+                width: 100%;
+            }
+
+            .flex.gap-4 a {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Three acts circles */
+            .w-24.h-24 {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .w-24.h-24 span {
+                font-size: 20px !important;
+            }
+
+            /* Mode numbers */
+            .text-\[120px\] {
+                font-size: 60px !important;
+            }
+
+            /* Experience modes list */
+            ul.space-y-4 li {
+                font-size: 13px !important;
+            }
+
+            /* Tables */
+            table {
+                font-size: 11px;
+            }
+
+            table th, table td {
+                padding: 8px 6px !important;
+            }
+
+            /* Marquee */
+            .marquee-simple {
+                padding: 12px 0;
+            }
+
+            .marquee-inner {
+                font-size: 11px !important;
+            }
+
+            /* Footer */
+            footer .grid {
+                gap: 30px !important;
+            }
+
+            footer .flex.flex-col.md\:flex-row {
+                text-align: center;
+            }
+
+            /* Large text elements */
+            .text-\[20vw\] {
+                font-size: 30vw !important;
+            }
+
+            /* Order fixes */
+            .order-1, .order-2 {
+                order: unset !important;
+            }
+
+            /* CTA section */
+            .flex.flex-wrap.justify-center.gap-6 {
+                flex-direction: column;
+                gap: 12px !important;
+            }
+
+            .flex.flex-wrap.justify-center.gap-6 a {
+                width: 100%;
+            }
+
+            /* Credits grid */
+            .grid.md\:grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .giant-title {
+                font-size: 11vw;
+            }
+
+            h2.text-6xl, h2.text-8xl {
+                font-size: 26px !important;
+            }
+
+            h2.text-5xl, h2.text-7xl {
+                font-size: 22px !important;
+            }
+
+            .quote-large {
+                font-size: 16px;
+            }
+
+            .chapter-number {
+                font-size: 60px;
+            }
+
+            nav {
+                padding: 12px 15px !important;
+            }
+
+            .btn-minimal, .btn-outline {
+                padding: 10px 20px;
+                font-size: 10px;
+            }
         }
     </style>
 </head>
@@ -277,7 +605,7 @@
             A New Medium for Digital Performance
         </div>
         <div class="giant-title font-mono-bold">
-            VIRTUAL<br>THEATER
+            VIRTUAL THEATER
         </div>
         <div class="absolute bottom-32 left-1/2 -translate-x-1/2 max-w-xl text-center px-6">
             <p class="text-sm opacity-80 mb-8">
