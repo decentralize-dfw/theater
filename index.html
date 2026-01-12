@@ -584,15 +584,22 @@
     </div>
 
     <!-- STICKY NAVIGATION -->
-    <nav class="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center text-[11px] uppercase font-bold tracking-[0.2em] mix-blend-multiply">
-        <div>VIRTUAL THEATER ARCHIVE</div>
-        <div class="hidden lg:flex gap-8">
-            <a href="#what-is-theater" class="hover:opacity-60">Theater</a>
-            <a href="#virtual-theater" class="hover:opacity-60">Virtual</a>
-            <a href="#how-it-works" class="hover:opacity-60">Method</a>
-            <a href="#trilogy" class="hover:opacity-60">Trilogy</a>
+    <nav class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-4 md:py-6 flex justify-between items-center text-[9px] md:text-[11px] uppercase font-bold tracking-[0.15em] md:tracking-[0.2em] bg-[#fff0f3]/80 backdrop-blur-sm">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 md:w-10 md:h-10 bg-current/10 border border-current/20 flex items-center justify-center">
+                <span class="text-[6px] opacity-40">LOGO</span>
+            </div>
+            <span>VIRTUAL THEATER</span>
         </div>
-        <div>EST. 2023</div>
+        <div class="flex gap-3 md:gap-6 overflow-x-auto nav-links">
+            <a href="#what-is-theater" class="hover:opacity-60 whitespace-nowrap">Theater</a>
+            <a href="#virtual-theater" class="hover:opacity-60 whitespace-nowrap">Virtual</a>
+            <a href="#how-it-works" class="hover:opacity-60 whitespace-nowrap">Method</a>
+            <a href="#other-paths" class="hover:opacity-60 whitespace-nowrap">Paths</a>
+            <a href="#modes" class="hover:opacity-60 whitespace-nowrap">Modes</a>
+            <a href="#trilogy" class="hover:opacity-60 whitespace-nowrap">Trilogy</a>
+            <a href="#manifesto" class="hover:opacity-60 whitespace-nowrap hidden md:inline">Manifesto</a>
+        </div>
     </nav>
 
     <!-- ========================================== -->
@@ -1169,7 +1176,7 @@
     <!-- ALTERNATIVE APPROACHES                    -->
     <!-- ========================================== -->
 
-    <section class="py-32 bg-gradient-to-b from-gray-50 to-white section-border">
+    <section id="other-paths" class="py-32 bg-gradient-to-b from-gray-50 to-white section-border">
         <div class="max-w-6xl mx-auto px-6">
 
             <div class="text-center mb-24">
@@ -1266,9 +1273,9 @@
                 <h4 class="text-2xl font-mono-bold mb-8 text-center">Three Paths, One Destination</h4>
                 <div class="grid md:grid-cols-3 gap-8 text-center">
                     <div>
-                        <div class="text-3xl font-mono-bold opacity-20 mb-2">OUR METHOD</div>
+                        <div class="text-3xl font-mono-bold opacity-20 mb-2">ONCHAIN WebXR</div>
                         <h5 class="font-bold mb-2">Smart Objects</h5>
-                        <p class="text-sm opacity-70">Pre-choreographed 3D assets performing in real-time. No code, maximum control, browser-native.</p>
+                        <p class="text-sm opacity-70">Pre-choreographed 3D assets on blockchain-owned worlds. No code, browser-native, NFT ownership.</p>
                     </div>
                     <div>
                         <div class="text-3xl font-mono-bold opacity-20 mb-2">AI PATH</div>
@@ -1294,7 +1301,7 @@
     <!-- CHAPTER 4: EXPERIENCE MODES               -->
     <!-- ========================================== -->
 
-    <section class="py-32 bg-black text-white">
+    <section id="modes" class="py-32 bg-black text-white">
         <div class="max-w-6xl mx-auto px-6">
 
             <!-- Chapter Header -->
@@ -2006,7 +2013,7 @@
     <!-- ========================================== -->
 
     <!-- MANIFESTO -->
-    <section class="py-32 bg-gradient-to-b from-pink-50 to-white section-border">
+    <section id="manifesto" class="py-32 bg-gradient-to-b from-pink-50 to-white section-border">
         <div class="max-w-4xl mx-auto px-6">
 
             <div class="text-center mb-24">
