@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIRTUAL THEATER // DECENTRALIZED ARCHIVE</title>
+    <title>VIRTUAL THEATER // A NEW MEDIUM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-pink-base: #fff0f3;
-            --text-dark: #1b4332; 
+            --text-dark: #1b4332;
             --accent-pink: #ff8fab;
             --deep-pink: #fb6f92;
         }
@@ -24,13 +24,12 @@
             background-attachment: fixed;
         }
 
-        h1, h2, h3, .font-mono-bold { 
-            font-family: 'Space Mono', monospace; 
+        h1, h2, h3, h4, .font-mono-bold {
+            font-family: 'Space Mono', monospace;
             font-weight: 700;
             letter-spacing: -0.05em;
         }
 
-        /* Fullscreen Hero Section */
         .hero-fullscreen {
             height: 100vh;
             display: flex;
@@ -44,14 +43,13 @@
         }
 
         .giant-title {
-            font-size: 18vw;
-            line-height: 0.75;
+            font-size: 15vw;
+            line-height: 0.85;
             text-transform: uppercase;
             z-index: 10;
             pointer-events: none;
         }
 
-        /* SVG Gradient Blobs Background */
         .bg-blobs {
             position: fixed;
             top: 0;
@@ -84,6 +82,23 @@
             background: transparent;
             color: var(--text-dark);
             transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            padding: 14px 35px;
+            font-size: 13px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 1px solid var(--text-dark);
+            font-weight: bold;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-dark);
+            color: white;
         }
 
         .marquee-simple {
@@ -129,6 +144,94 @@
             font-size: 10px;
             margin-bottom: 10px;
         }
+
+        .chapter-number {
+            font-size: 200px;
+            font-weight: 700;
+            opacity: 0.05;
+            position: absolute;
+            right: -20px;
+            top: -60px;
+            font-family: 'Space Mono', monospace;
+            line-height: 1;
+        }
+
+        .prose-section {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .prose-section p {
+            margin-bottom: 1.5em;
+        }
+
+        .highlight-box {
+            background: rgba(255,255,255,0.6);
+            border-left: 4px solid var(--text-dark);
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #ffc2d1 0%, #ff8fab 100%);
+            border: 2px dashed var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            min-height: 300px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            padding-bottom: 40px;
+            border-left: 2px solid var(--text-dark);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--text-dark);
+            border-radius: 50%;
+        }
+
+        .quote-large {
+            font-size: 28px;
+            font-style: italic;
+            line-height: 1.4;
+            border-left: 4px solid var(--deep-pink);
+            padding-left: 30px;
+            margin: 50px 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.5);
+            border: 1px solid rgba(27,67,50,0.2);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            line-height: 1;
+        }
+
+        .fade-text {
+            background: linear-gradient(to bottom, var(--text-dark), transparent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
 <body>
@@ -154,20 +257,58 @@
 
     <!-- STICKY NAVIGATION -->
     <nav class="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center text-[11px] uppercase font-bold tracking-[0.2em] mix-blend-multiply">
-        <div>DECENTRALIZED PERFORMANCE ARCHIVE</div>
-        <div class="hidden lg:block">LIVE STREAM FROM THE BLOCKCHAIN // BROWSER-NATIVE</div>
-        <div>VOL. 01 (2026)</div>
+        <div>VIRTUAL THEATER ARCHIVE</div>
+        <div class="hidden lg:flex gap-8">
+            <a href="#what-is-theater" class="hover:opacity-60">Theater</a>
+            <a href="#virtual-theater" class="hover:opacity-60">Virtual</a>
+            <a href="#how-it-works" class="hover:opacity-60">Method</a>
+            <a href="#trilogy" class="hover:opacity-60">Trilogy</a>
+        </div>
+        <div>EST. 2023</div>
     </nav>
 
-    <!-- FULLSCREEN HEADER -->
+    <!-- ========================================== -->
+    <!-- PART 1: HERO + INTRO + THEATER HISTORY    -->
+    <!-- ========================================== -->
+
+    <!-- FULLSCREEN HERO -->
     <header class="hero-fullscreen">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.3em] uppercase opacity-60 font-bold">
+            A New Medium for Digital Performance
+        </div>
         <div class="giant-title font-mono-bold">
             VIRTUAL<br>THEATER
         </div>
-        <div class="absolute bottom-20 left-1/2 -translate-x-1/2 text-[12px] font-bold tracking-widest animate-bounce">
-            SCROLL TO ENTER SIMULATION
+        <div class="absolute bottom-32 left-1/2 -translate-x-1/2 max-w-xl text-center px-6">
+            <p class="text-sm opacity-80 mb-8">
+                Not cinema. Not traditional theater. Not a video game. A living performance happening in real-time inside your browser, where architecture becomes narrative and time becomes malleable.
+            </p>
+            <a href="#what-is-theater" class="btn-minimal">Begin the Journey</a>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-widest animate-bounce">
+            SCROLL TO ENTER
         </div>
     </header>
+
+    <!-- OPENING MARQUEE -->
+    <div class="marquee-simple">
+        <div class="marquee-inner text-sm uppercase font-bold">
+            BROWSER-NATIVE PERFORMANCE /// NO DOWNLOADS REQUIRED /// REAL-TIME DIGITAL THEATER /// WEB3 OWNERSHIP /// METAVERSE STORYTELLING /// DECENTRALIZED ART /// BROWSER-NATIVE PERFORMANCE /// NO DOWNLOADS REQUIRED /// REAL-TIME DIGITAL THEATER /// WEB3 OWNERSHIP /// METAVERSE STORYTELLING /// DECENTRALIZED ART ///
+        </div>
+    </div>
+
+    <!-- INTRODUCTION: THE QUESTION -->
+    <section class="py-32 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="tag-pill mb-8">The Question</span>
+            <h2 class="text-5xl md:text-7xl font-mono-bold mb-12 leading-tight">
+                What happens when<br>the internet learns<br>to perform?
+            </h2>
+            <p class="text-lg opacity-80 max-w-2xl mx-auto">
+                For centuries, humans gathered in physical spaces to witness stories unfold before their eyes. The theater was sacred ground where the boundary between performer and audience dissolved into shared experience. Then came cinema, freezing these moments into perfect, repeatable loops. But what if there was a third way?
+            </p>
+        </div>
+    </section>
 
     <!-- HERO VIDEO SECTION -->
     <section class="p-6 md:p-12">
@@ -175,128 +316,334 @@
             <video autoplay muted loop playsinline>
                 <source src="https://video.wixstatic.com/video/54a996_45a230b2bece4d03b010b327a5cdaa42/1080p/mp4/file.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             <div class="absolute bottom-12 left-12 text-white max-w-2xl">
-                <span class="tag-pill">THE INVENTION</span>
-                <h2 class="text-5xl font-mono-bold leading-none mb-4 uppercase">Web-Native Metaverse</h2>
-                <p class="text-sm opacity-80 font-mono">Performance art is no longer tethered to physical venues. It is an invention of instant file synchronization across the Metaverse, delivered as a living browser experience.</p>
+                <span class="tag-pill">The Invention</span>
+                <h2 class="text-4xl md:text-5xl font-mono-bold leading-none mb-4 uppercase">Where Files Become Actors</h2>
+                <p class="text-sm opacity-80 font-mono">A living performance delivered through your browser. No downloads. No installations. Just click and fall into a world where digital beings perform their existence in real-time.</p>
             </div>
         </div>
     </section>
 
-    <!-- MARQUEE -->
-    <div class="marquee-simple">
+    <!-- ========================================== -->
+    <!-- CHAPTER 1: WHAT IS THEATER?               -->
+    <!-- ========================================== -->
+
+    <section id="what-is-theater" class="py-32 section-border">
+        <div class="max-w-6xl mx-auto px-6">
+
+            <!-- Chapter Header -->
+            <div class="relative mb-24">
+                <span class="chapter-number">01</span>
+                <span class="tag-pill">Chapter One</span>
+                <h2 class="text-6xl md:text-8xl font-mono-bold mt-4 leading-none">
+                    WHAT IS<br>THEATER?
+                </h2>
+                <p class="text-xl mt-8 max-w-2xl opacity-80">
+                    Before we can understand what Virtual Theater is, we must first return to the essence of theater itself. What makes it different from all other art forms?
+                </p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid lg:grid-cols-2 gap-16 mb-24">
+                <div class="prose-section">
+                    <h3 class="text-3xl font-mono-bold mb-6">The Ancient Pact</h3>
+                    <p>
+                        Theater is humanity's oldest form of collective storytelling. Long before the written word, before paintings adorned cave walls, humans gathered around fires to watch their kin embody gods, heroes, and demons. This was not mere entertainment—it was ritual, transformation, and communion.
+                    </p>
+                    <p>
+                        The ancient Greeks formalized this into the amphitheater: a space designed specifically for the act of witnessing. The word "theater" itself comes from the Greek "theatron"—a place for viewing. But viewing what? Not just actors on a stage, but the transformation of human beings into something other than themselves.
+                    </p>
+                    <p>
+                        What made theater unique was its ephemerality. Every performance existed only in that moment. The same play performed twice was never truly the same play. The actor's voice might crack. A line might be forgotten. The audience might gasp or laugh at unexpected moments. This imperfection was not a bug—it was the essential feature.
+                    </p>
+                </div>
+                <div>
+                    <div class="image-placeholder aspect-[4/3] mb-6">
+                        [IMAGE: Ancient Greek Amphitheater]
+                    </div>
+                    <p class="text-xs uppercase tracking-wider opacity-60">
+                        The Theater of Epidaurus, Greece. Built in the 4th century BC, it could seat 14,000 spectators who gathered to witness performances that lasted entire days.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Quote -->
+            <div class="quote-large">
+                "In our rational world, we have films—mere flattened images, 2D or 3D, it matters not, for they are all equally dead, equally perfect in their preserved state. And we have theater—oh, glorious theater!—happening before our very eyes, alive with the possibility of catastrophe."
+            </div>
+
+            <!-- The Elements of Theater -->
+            <div class="mt-24">
+                <h3 class="text-4xl font-mono-bold mb-12">The Five Pillars of Theater</h3>
+
+                <div class="grid md:grid-cols-5 gap-6">
+                    <div class="stat-box">
+                        <div class="stat-number">01</div>
+                        <h4 class="font-bold mt-4 mb-2">LIVENESS</h4>
+                        <p class="text-xs opacity-70">Performance happens in real-time, unrepeatable and unique to each moment</p>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">02</div>
+                        <h4 class="font-bold mt-4 mb-2">PRESENCE</h4>
+                        <p class="text-xs opacity-70">Performers and audience share the same space-time continuum</p>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">03</div>
+                        <h4 class="font-bold mt-4 mb-2">RISK</h4>
+                        <p class="text-xs opacity-70">Something can always go wrong. The possibility of failure is ever-present</p>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">04</div>
+                        <h4 class="font-bold mt-4 mb-2">SPACE</h4>
+                        <p class="text-xs opacity-70">Architecture shapes experience. The stage is a world unto itself</p>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">05</div>
+                        <h4 class="font-bold mt-4 mb-2">COMMUNION</h4>
+                        <p class="text-xs opacity-70">Collective witnessing transforms individual experience into shared ritual</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theater vs Cinema -->
+            <div class="mt-32">
+                <h3 class="text-4xl font-mono-bold mb-8">The Great Divergence: Theater vs. Cinema</h3>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div class="prose-section">
+                        <p>
+                            When cinema emerged in the late 19th century, many predicted the death of theater. Why would anyone attend a live performance when they could watch perfect, repeatable images on a screen? The moving picture seemed like theater's evolutionary successor.
+                        </p>
+                        <p>
+                            But something strange happened. Theater didn't die. It transformed. It began to emphasize precisely those qualities that cinema could never capture: the electricity of live presence, the danger of real-time failure, the irreplaceable magic of shared breath in a darkened room.
+                        </p>
+                        <p>
+                            Cinema became the art of the preserved moment—perfect, repeatable, controllable. Theater remained the art of the living moment—imperfect, unique, alive with possibility. Two siblings, born from the same parent, walking different paths.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="highlight-box">
+                            <h4 class="font-bold text-lg mb-4">CINEMA</h4>
+                            <ul class="text-sm space-y-2 opacity-80">
+                                <li>• Recorded and preserved</li>
+                                <li>• Identical on every viewing</li>
+                                <li>• Director controls perspective</li>
+                                <li>• Audience is passive receiver</li>
+                                <li>• Time is edited and compressed</li>
+                                <li>• Perfect and polished</li>
+                            </ul>
+                        </div>
+                        <div class="highlight-box mt-6">
+                            <h4 class="font-bold text-lg mb-4">THEATER</h4>
+                            <ul class="text-sm space-y-2 opacity-80">
+                                <li>• Live and ephemeral</li>
+                                <li>• Different every performance</li>
+                                <li>• Audience chooses focus</li>
+                                <li>• Audience is active participant</li>
+                                <li>• Time flows naturally</li>
+                                <li>• Imperfect and alive</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Grid -->
+            <div class="grid grid-cols-3 gap-4 mt-16">
+                <div class="image-placeholder aspect-square">[IMAGE: Traditional Stage]</div>
+                <div class="image-placeholder aspect-square">[IMAGE: Audience in Theater]</div>
+                <div class="image-placeholder aspect-square">[IMAGE: Actor on Stage]</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CHAPTER 2: VIRTUAL THEATER DEFINED        -->
+    <!-- ========================================== -->
+
+    <section id="virtual-theater" class="py-32 bg-white/30 section-border">
+        <div class="max-w-6xl mx-auto px-6">
+
+            <!-- Chapter Header -->
+            <div class="relative mb-24">
+                <span class="chapter-number">02</span>
+                <span class="tag-pill">Chapter Two</span>
+                <h2 class="text-6xl md:text-8xl font-mono-bold mt-4 leading-none">
+                    VIRTUAL<br>THEATER
+                </h2>
+                <p class="text-xl mt-8 max-w-2xl opacity-80">
+                    A new medium emerges. Not physical cinema, but virtual cinema. Not recorded performance, but living files performing in real-time. This is the invention.
+                </p>
+            </div>
+
+            <!-- The Definition -->
+            <div class="highlight-box mb-16">
+                <h3 class="text-2xl font-mono-bold mb-4">THE DEFINITION</h3>
+                <p class="text-lg">
+                    <strong>Virtual Theater</strong> is a form of digital performance art where scripted narratives unfold in real-time within metaverse environments, accessible through web browsers without downloads or installations. Unlike traditional video, the performance is not pre-recorded—it happens live each time, with digital assets (3D models, sounds, architectural elements) acting as performers following choreographed cues.
+                </p>
+            </div>
+
+            <!-- The Key Distinction -->
+            <div class="grid lg:grid-cols-2 gap-16 mb-24">
+                <div class="prose-section">
+                    <h3 class="text-3xl font-mono-bold mb-6">The Crucial Distinction</h3>
+                    <p>
+                        "Think of animation," one might say, "but not rendered—happening NOW, right before your eyes." This is the key insight. In traditional animation or CGI, every frame is pre-calculated, stored, and played back. The performance is dead before you ever see it.
+                    </p>
+                    <p>
+                        In Virtual Theater, the performance is alive. The digital actors—3D models, smart objects, architectural elements—execute their choreographed movements in real-time within the metaverse engine. What you witness is not a recording of something that happened, but something happening in this very moment.
+                    </p>
+                    <p>
+                        This distinction matters because it preserves the essential quality of theater: the possibility of failure. If a server stutters, if a file loads slowly, if the physics engine hiccups—these are the digital equivalents of an actor forgetting their line. They are not bugs to be eliminated but features that maintain the living quality of the experience.
+                    </p>
+                </div>
+                <div>
+                    <div class="image-placeholder aspect-[4/3] mb-6">
+                        [IMAGE: Virtual Theater Performance Screenshot]
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="image-placeholder aspect-square">[IMAGE: Smart Objects]</div>
+                        <div class="image-placeholder aspect-square">[IMAGE: 3D Actors]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote -->
+            <div class="quote-large">
+                "What I have created—or perhaps what has created itself through me—stands between these worlds, like a man on a bridge contemplating both shores yet belonging to neither. In this Virtual Theater, everything is scripted, yes, but the performers are files, digital beings performing their roles in real-time, like animated ghosts in a machine."
+            </div>
+
+            <!-- Why Now? -->
+            <div class="mt-24">
+                <h3 class="text-4xl font-mono-bold mb-8">Why Now? The Technological Convergence</h3>
+
+                <div class="prose-section max-w-3xl">
+                    <p>
+                        Virtual Theater became possible only through the convergence of several technological developments that reached maturity in the early 2020s:
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                    <div class="timeline-item">
+                        <h4 class="font-bold mb-2">WebGL & WebXR</h4>
+                        <p class="text-sm opacity-70">Browser-native 3D rendering became powerful enough to display complex scenes without plugins or downloads.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold mb-2">Metaverse Platforms</h4>
+                        <p class="text-sm opacity-70">Platforms like Hyperfy and Monaverse provided infrastructure for persistent, interactive 3D worlds.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold mb-2">Smart Objects</h4>
+                        <p class="text-sm opacity-70">The ability to program 3D objects with timed behaviors enabled choreographed performances without code.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold mb-2">NFT Ownership</h4>
+                        <p class="text-sm opacity-70">Blockchain technology allowed digital experiences to be owned, traded, and preserved as unique assets.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Three Questions -->
+            <div class="mt-32">
+                <h3 class="text-4xl font-mono-bold mb-12 text-center">Three Questions Virtual Theater Asks</h3>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-white/50">
+                        <div class="text-6xl font-mono-bold opacity-10 mb-4">?</div>
+                        <h4 class="font-bold text-xl mb-4">Can Files Feel?</h4>
+                        <p class="text-sm opacity-70">
+                            If digital entities perform emotions convincingly enough, does it matter whether they "truly" feel? What is the difference between simulated emotion and real emotion when both produce the same effect?
+                        </p>
+                    </div>
+                    <div class="text-center p-8 bg-white/50">
+                        <div class="text-6xl font-mono-bold opacity-10 mb-4">?</div>
+                        <h4 class="font-bold text-xl mb-4">Who Is the Audience?</h4>
+                        <p class="text-sm opacity-70">
+                            When viewers enter as avatars, the line between performer and audience blurs. You are simultaneously watching and being watched. Are you audience, actor, or both?
+                        </p>
+                    </div>
+                    <div class="text-center p-8 bg-white/50">
+                        <div class="text-6xl font-mono-bold opacity-10 mb-4">?</div>
+                        <h4 class="font-bold text-xl mb-4">What Is Reality?</h4>
+                        <p class="text-sm opacity-70">
+                            In a space where time can be reversed, where you can exist in multiple locations, where the laws of physics are merely suggestions—what does "real" even mean?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historical Context -->
+            <div class="mt-32">
+                <h3 class="text-4xl font-mono-bold mb-8">Does Virtual Theater Have Precedents?</h3>
+
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="prose-section">
+                        <p>
+                            Throughout history, artists have sought ways to merge technology with performance. From Wagner's Gesamtkunstwerk (total work of art) to Bauhaus experiments with light and movement, the dream of technologically-enhanced theater is old.
+                        </p>
+                        <p>
+                            In the digital age, we've seen interactive theater (Sleep No More), live-streamed performances, and VR experiences. But these are adaptations of existing forms—theater with technology added on top.
+                        </p>
+                        <p>
+                            Virtual Theater is different. It is native to its medium. It could not exist without the metaverse, just as cinema could not exist without the camera. The technology is not an enhancement but the very substance of the art form.
+                        </p>
+                        <p>
+                            Perhaps the closest ancestor is the video game, particularly narrative-driven games where player presence affects the experience. But games require interaction and choice. Virtual Theater requires only witnessing—though witnessing itself becomes a form of participation.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="bg-white/60 p-8">
+                            <h4 class="font-bold text-lg mb-6">EVOLUTION OF PERFORMANCE MEDIA</h4>
+                            <div class="space-y-6 text-sm">
+                                <div class="flex items-start gap-4">
+                                    <span class="font-mono-bold">500 BC</span>
+                                    <span class="opacity-70">Greek Amphitheater — Live, communal, ephemeral</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="font-mono-bold">1895</span>
+                                    <span class="opacity-70">Cinema — Recorded, repeatable, mass-distributed</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="font-mono-bold">1950s</span>
+                                    <span class="opacity-70">Television — Broadcast, simultaneous, domestic</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="font-mono-bold">1990s</span>
+                                    <span class="opacity-70">Video Games — Interactive, non-linear, player-driven</span>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="font-mono-bold">2020s</span>
+                                    <span class="opacity-70">Virtual Theater — Real-time, browser-native, owned</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TRANSITION MARQUEE -->
+    <div class="marquee-simple bg-black text-white">
         <div class="marquee-inner text-sm uppercase font-bold">
-            DECENTRALIZED CONSTRUCTION /// NO DOWNLOADS REQUIRED /// LIVE FILE PERFORMANCE /// WEB3 THEATER /// BROWSER-BASED REALITY /// PEER-TO-PEER STAGING /// DECENTRALIZED CONSTRUCTION /// NO DOWNLOADS REQUIRED /// LIVE FILE PERFORMANCE /// WEB3 THEATER /// BROWSER-BASED REALITY /// PEER-TO-PEER STAGING ///
+            THE FUTURE IS NOT JUST VIRTUAL — IT IS ALIVE /// THE INTERNET CAN PERFORM /// ARCHITECTURE BECOMES NARRATIVE /// SPACE BECOMES CHOREOGRAPHY /// TIME BECOMES MALLEABLE /// THE FUTURE IS NOT JUST VIRTUAL — IT IS ALIVE /// THE INTERNET CAN PERFORM /// ARCHITECTURE BECOMES NARRATIVE ///
         </div>
     </div>
 
-    <!-- SECTION: DECENTRALIZATION -->
-    <section class="max-w-6xl mx-auto px-6 py-32">
-        <div class="grid md:grid-cols-12 gap-12">
-            <div class="md:col-span-5">
-                <h3 class="text-5xl font-mono-bold mb-6">DECENTRALIZED<br>STRUCTURE</h3>
-            </div>
-            <div class="md:col-span-7 space-y-8 text-lg">
-                <p>
-                    Virtual Theater is not hosted on a single server or limited to one location. This is a <strong>"Decentralized Invention."</strong> Works flow instantly to your browser from global nodes.
-                </p>
-                <div class="border-l-4 border-black pl-8 py-2">
-                    <p class="font-bold text-xl mb-4">Real-time Performance via Metaverse</p>
-                    <p class="text-sm opacity-80">
-                        Using architectures like Hyperfy and Monaverse, code, sound, and visual files transform into a real-time theatrical play on the web. The audience doesn't just watch; they inhabit the file.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- PLACEHOLDER FOR PARTS 2, 3, 4 -->
+    <!-- Part 2: How It Works, Experience Modes, Technical Details -->
+    <!-- Part 3: The Trilogy - Detailed Project Descriptions -->
+    <!-- Part 4: Manifesto, Ownership, Footer -->
 
-    <!-- ANTHOLOGY / TRILOGY -->
-    <section id="anthology" class="section-border py-32">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-24">
-                <h2 class="text-[10vw] font-mono-bold leading-none opacity-10">SIMULATIONS</h2>
-                <h3 class="text-5xl font-mono-bold -mt-12 relative z-10 uppercase">THE TRILOGY</h3>
-            </div>
-
-            <!-- PROJECT 01: WHY WE EXIST -->
-            <div class="grid lg:grid-cols-2 gap-24 mb-40 items-center">
-                <div class="video-container group">
-                    <video autoplay muted loop playsinline class="grayscale hover:grayscale-0 transition-all duration-500">
-                        <source src="https://video.wixstatic.com/video/54a996_45a230b2bece4d03b010b327a5cdaa42/1080p/mp4/file.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div>
-                    <span class="text-[10px] font-bold opacity-50 block mb-2">01 // NOV 2023</span>
-                    <h4 class="text-6xl font-mono-bold mb-8">WHY WE EXIST</h4>
-                    <p class="text-sm mb-10 max-w-md">
-                        Based on the Murakami Pill theory. Digital actors striving to reconnect with their creator. Witness the genesis of virtual theater as a decentralized medium.
-                    </p>
-                    <a href="https://hyperfy.io/pill" target="_blank" class="btn-minimal">Witness Origin</a>
-                </div>
-            </div>
-
-            <!-- PROJECT 02: BALLOON -->
-            <div class="grid lg:grid-cols-2 gap-24 mb-40 items-center">
-                <div class="order-2 lg:order-1">
-                    <span class="text-[10px] font-bold opacity-50 block mb-2 text-right lg:text-left">02 // MAY 2024</span>
-                    <h4 class="text-6xl font-mono-bold mb-8 text-right lg:text-left">BALLOON</h4>
-                    <p class="text-sm mb-10 max-w-md text-right lg:text-left ml-auto lg:ml-0">
-                        32 choreographed camera angles. A surreal journey from a pink room to a desert. A "living file" running natively in the browser.
-                    </p>
-                    <div class="text-right lg:text-left">
-                        <a href="https://hyperfy.io/balloon" target="_blank" class="btn-minimal">Launch Simulation</a>
-                    </div>
-                </div>
-                <div class="video-container order-1 lg:order-2 group">
-                    <video autoplay muted loop playsinline>
-                        <source src="https://video.wixstatic.com/video/54a996_9ad99d6734bc442caa28b3b2a7157f1a/1080p/mp4/file.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-pink-500/10 group-hover:bg-transparent transition-all"></div>
-                </div>
-            </div>
-
-            <!-- PROJECT 03: HATCH -->
-            <div class="grid lg:grid-cols-2 gap-24 items-center">
-                <div class="video-container group">
-                    <video autoplay muted loop playsinline>
-                        <source src="https://video.wixstatic.com/video/54a996_35eb8e4dfd7141d6aef12a36e862b458/1080p/mp4/file.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div>
-                    <span class="text-[10px] font-bold opacity-50 block mb-2">03 // JULY 2024</span>
-                    <h4 class="text-6xl font-mono-bold mb-8">HATCH</h4>
-                    <p class="text-sm mb-10 max-w-md">
-                        Two digital beings. One external entity. Featuring over 50 smart objects and a time-bending narrative mode.
-                    </p>
-                    <a href="https://hyperfy.io/hatch" target="_blank" class="btn-minimal">Connect to Network</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER / OWNERSHIP -->
-    <footer class="py-32 px-6 border-t-2 border-black bg-white">
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-16">
-            <div class="max-w-xl">
-                <h2 class="text-5xl font-mono-bold mb-8">OWN THE WORLD</h2>
-                <p class="text-xs mb-10 leading-relaxed uppercase tracking-widest">
-                    When you collect Virtual Theater pieces, you don't just acquire a media file. You inherit the stage, the code, and the rights. This is the new form of ownership in decentralized art.
-                </p>
-                <div class="flex flex-wrap gap-8 font-bold text-[10px] tracking-widest">
-                    <a href="#" class="border-b border-black">OPENSEA</a>
-                    <a href="#" class="border-b border-black">MONAVERSE</a>
-                    <a href="#" class="border-b border-black">DECENTRALIZED PROTOCOL</a>
-                </div>
-            </div>
-            <div class="text-right w-full lg:w-auto">
-                <div class="text-[120px] font-mono-bold leading-none mb-4 opacity-20">VT/A</div>
-                <p class="text-[10px] font-bold opacity-60">
-                    &copy; 2026 VIRTUAL THEATER ARCHIVE<br>
-                    A WEB-NATIVE INVENTION.
-                </p>
-            </div>
-        </div>
+    <!-- TEMPORARY FOOTER -->
+    <footer class="py-16 px-6 text-center">
+        <p class="text-xs uppercase tracking-widest opacity-40">
+            Part 1 of 4 — Continue scrolling for more
+        </p>
     </footer>
 
 </body>
