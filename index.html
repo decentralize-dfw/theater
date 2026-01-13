@@ -257,6 +257,75 @@
             background-clip: text;
         }
 
+/* COMPARISON SLIDER CSS - UPDATED */
+.comparison-container {
+    position: relative;
+    width: 100%;
+    /* GÜNCELLENDİ: Daha slim (geniş) bir görünüm için 21/9 oranı */
+    aspect-ratio: 21/9; 
+    overflow: hidden;
+    border: 1px solid var(--text-dark);
+    cursor: ew-resize;
+    background: #000;
+    user-select: none;
+    touch-action: pan-y;
+}
+
+.comp-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resimlerin orantılı şekilde alanı doldurmasını sağlar */
+    pointer-events: none;
+    display: block;
+}
+
+/* Üst katman (Maskeleme alanı) */
+.comp-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 10;
+    border-right: 2px solid #ffffff; /* Ortadaki çizgi saf beyaz */
+    background: var(--bg-pink-base);
+}
+
+#top-image {
+    width: auto; 
+    max-width: none;
+    height: 100%;
+}
+
+/* GÜNCELLENDİ: Tutma Yuvarlağı (Sadece Beyaz) */
+.comp-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%; /* JS ile güncellenecek */
+    transform: translate(-50%, -50%);
+    /* Boyutu biraz küçülttüm daha zarif durması için (44px -> 32px) */
+    width: 32px;
+    height: 32px;
+    background: #ffffff; /* SAF BEYAZ */
+    /* border: 2px solid var(--text-dark); <-- Çerçeve kaldırıldı */
+    border-radius: 50%;
+    z-index: 20;
+    /* Flex özellikleri kaldırıldı çünkü içinde ikon yok */
+    /* Gölgeyi biraz daha belirginleştirdim ki beyaz resim üzerinde kaybolmasın */
+    box-shadow: 0 0 10px rgba(0,0,0,0.4); 
+    pointer-events: none;
+}
+/* .comp-handle svg CSS'i artık gerekli olmadığı için silindi */
+
+.comp-handle svg {
+    width: 24px;
+    height: 24px;
+}
+
         /* ================================ */
         /* COMPREHENSIVE MOBILE RESPONSIVE  */
         /* ================================ */
@@ -529,6 +598,7 @@
             }
         }
 
+
         /* Small mobile */
         @media (max-width: 480px) {
             .giant-title {
@@ -789,15 +859,36 @@
             </div>
 
             <!-- Image Grid -->
-            <div class="grid grid-cols-3 gap-4 mt-16">
-                <div class="aspect-square overflow-hidden border border-current/20"><img src="https://static.wixstatic.com/media/54a996_04724c90a9564fcdb85a756647b0aa94~mv2.png" alt="Traditional Stage" class="w-full h-full object-cover"></div>
+            <div class="mt-20 w-full max-w-4xl mx-auto select-none">
+    
+   <div class="mt-20 w-full max-w-5xl mx-auto select-none"> <div class="text-center mb-6">
+        <span class="tag-pill">Evolution</span>
+        <h4 class="font-mono-bold text-xl opacity-80 mt-2">ILLUSION vs. REALITY</h4>
+        
+    </div>
 
+    <div class="comparison-container" id="compare-slider">
+        
+        <img src="https://static.wixstatic.com/media/54a996_2cc8350c7d35472396707d44a9e76c85~mv2.png" 
+             alt="Wireframe View" 
+             class="comp-img">
 
-                <div class="aspect-square overflow-hidden border border-current/20"><img src="https://static.wixstatic.com/media/54a996_80825c8b5d4946c08ccd5a13be4ea7ca~mv2.png" alt="Audience in Theater" class="w-full h-full object-cover"></div>
+        <div class="comp-overlay" id="comp-overlay">
+            <img src="https://static.wixstatic.com/media/54a996_80c8e59908e44ec786ad6dfb0248577d~mv2.png" 
+                 alt="Render View" 
+                 class="comp-img"
+                 id="top-image">
+        </div>
 
-
-                <div class="aspect-square overflow-hidden border border-current/20"><img src="https://static.wixstatic.com/media/54a996_73c65fb998124175abebed31288d0150~mv2.png" alt="Actor on Stage" class="w-full h-full object-cover"></div>
-            </div>
+        <div class="comp-handle" id="comp-handle">
+           </div>
+    </div>
+    
+    <div class="flex justify-between text-[10px] uppercase font-bold mt-3 opacity-40 tracking-[0.2em]">
+        <span>TVirtual</span>
+        <span>Theater</span>
+    </div>
+</div>
 
         </div>
     </section>
@@ -2314,6 +2405,86 @@
 
         </div>
     </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slider = document.getElementById('compare-slider');
+        const overlay = document.getElementById('comp-overlay');
+        const topImage = document.getElementById('top-image');
+        const handle = document.getElementById('comp-handle');
+        let isDown = false;
 
+        // Üstteki resmin genişliğini container ile eşitleme fonksiyonu
+        // Bu sayede overlay küçülse bile resim squish (ezilme) olmaz.
+        function resizeTopImage() {
+            if(slider && topImage) {
+                topImage.style.width = slider.offsetWidth + 'px';
+            }
+        }
+
+        // Sayfa yüklendiğinde ve boyut değiştiğinde resmi ayarla
+        window.addEventListener('resize', resizeTopImage);
+        resizeTopImage(); // İlk açılış
+
+        // Hareketi Hesapla
+        function move(e) {
+            if (!isDown && e.type !== 'mousemove') return; // Sadece tıklıysa veya dokunuyorsa
+            
+            const rect = slider.getBoundingClientRect();
+            let clientX = e.clientX;
+            
+            // Mobil dokunmatik kontrolü
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+            }
+
+            // Slider içindeki X pozisyonu
+            let x = clientX - rect.left;
+            
+            // Sınırları belirle (taşmasın)
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
+
+            // Overlay genişliğini ve handle konumunu güncelle
+            overlay.style.width = x + 'px';
+            handle.style.left = x + 'px';
+        }
+
+        // --- Event Listeners ---
+
+        // Mouse (Masaüstü)
+        slider.addEventListener('mousedown', (e) => { 
+            isDown = true; 
+            move(e); 
+        });
+        window.addEventListener('mouseup', () => { isDown = false; });
+        
+        // Mouse ile üzerine gelince de hareket etsin (isteğe bağlı, şu an tıklama gerektirir)
+        // Eğer tıklamadan hareket etsin istersen aşağıdaki 'mousemove' kısmındaki !isDown kontrolünü kaldır.
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return; 
+            move(e);
+        });
+
+        // Touch (Mobil)
+        slider.addEventListener('touchstart', (e) => {
+            isDown = true;
+            move(e);
+        });
+        slider.addEventListener('touchend', () => { isDown = false; });
+        slider.addEventListener('touchmove', (e) => {
+            if(!isDown) return;
+            move(e);
+            // Mobilde sayfanın kaymasını engellemek için (gerekirse açabilirsin):
+            // e.preventDefault(); 
+        });
+    });
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
