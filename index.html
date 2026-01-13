@@ -295,9 +295,9 @@
     background: var(--bg-pink-base);
 }
 
-#top-image {
+.top-image-fix {
     width: auto; 
-    max-width: none;
+    max-width: none; /* Büzüşmeyi engelleyen kod */
     height: 100%;
 }
 
@@ -876,8 +876,8 @@
         <div class="comp-overlay" id="comp-overlay">
             <img src="https://static.wixstatic.com/media/54a996_80c8e59908e44ec786ad6dfb0248577d~mv2.png" 
                  alt="Render View" 
-                 class="comp-img"
-                 id="top-image">
+         class="comp-img top-image-fix" 
+         id="top-image">
         </div>
 
         <div class="comp-handle" id="comp-handle">
@@ -885,7 +885,7 @@
     </div>
     
     <div class="flex justify-between text-[10px] uppercase font-bold mt-3 opacity-40 tracking-[0.2em]">
-        <span>TVirtual</span>
+        <span>Virtual</span>
         <span>Theater</span>
     </div>
 </div>
@@ -977,7 +977,7 @@
                     </div>
                     <div class="timeline-item">
                         <h4 class="font-bold mb-2">Metaverse Platforms</h4>
-                        <p class="text-sm opacity-70">Platforms like Hyperfy and Monaverse provided infrastructure for persistent, interactive 3D worlds.</p>
+                        <p class="text-sm opacity-70">Platforms like Hyperfy provided infrastructure for persistent, interactive 3D worlds accessible through web browsers.</p>
                     </div>
                     <div class="timeline-item">
                         <h4 class="font-bold mb-2">Smart Objects</h4>
@@ -1192,20 +1192,83 @@
                 </div>
             </div>
 
+            <!-- Platform Slider -->
+            <div class="mt-20 w-full max-w-5xl mx-auto select-none">
+                <div class="text-center mb-6">
+                    <span class="tag-pill">Platform</span>
+                    <h4 class="font-mono-bold text-xl opacity-80 mt-2">TECHNICAL FOUNDATION</h4>
+                </div>
+
+                <div class="comparison-container" id="compare-slider-2">
+                    <img src="https://static.wixstatic.com/media/54a996_31375b500cf643c4817667c80ebd6a30~mv2.png"
+                         alt="Wireframe View"
+                         class="comp-img">
+
+                    <div class="comp-overlay" id="comp-overlay-2">
+                        <img src="https://static.wixstatic.com/media/54a996_80c8e59908e44ec786ad6dfb0248577d~mv2.png"
+                             alt="Render View" 
+         class="comp-img top-image-fix" 
+         id="top-image">
+                    </div>
+
+                    <div class="comp-handle" id="comp-handle-2">
+                    </div>
+                </div>
+
+                <div class="flex justify-between text-[10px] uppercase font-bold mt-3 opacity-40 tracking-[0.2em]">
+                    <span>Render</span>
+                    <span>Nature</span>
+                </div>
+            </div>
+
             <!-- Platform Architecture -->
             <div class="mt-32">
                 <h3 class="text-4xl font-mono-bold mb-8">Platform Architecture</h3>
 
                 <div class="prose-section max-w-3xl mb-12">
                     <p>
-                        Virtual Theater is deployed primarily on established metaverse platforms—Hyperfy and Monaverse—that provide the infrastructure for persistent, interactive 3D worlds accessible through any web browser.
+                        Virtual Theater's technical foundation prioritizes two approaches: custom WebXR applications built from the ground up, and the open-source Hyperfy v2 platform. The first three theaters were realized on Hyperfy v1, while future productions will leverage either custom-coded WebXR experiences or the evolved Hyperfy v2 ecosystem at <a href="https://hyperfy.xyz" target="_blank" class="underline hover:opacity-70">hyperfy.xyz</a>.
+                    </p>
+                    <p class="mt-4">
+                        Through code, the possibilities become limitless—every gesture, every moment, every interaction can be precisely choreographed or spontaneously generated. This is not about choosing a platform; it's about choosing creative freedom.
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="bg-white/50 p-8">
-                        <h4 class="font-bold text-xl mb-6">HYPERFY</h4>
+                        <h4 class="font-bold text-xl mb-6">CUSTOM WebXR DEVELOPMENT</h4>
+                        <p class="text-sm mb-4 opacity-80">Primary approach for maximum creative control</p>
                         <ul class="space-y-3 text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span>Complete creative freedom - every pixel, every interaction</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span>Native WebXR - browser and VR headset compatible</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span>Unlimited possibilities through custom code</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span>No platform limitations or dependencies</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span>Optimized performance for specific artistic vision</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/50 p-8">
+                        <h4 class="font-bold text-xl mb-6">HYPERFY V2</h4>
+                        <p class="text-sm mb-4 opacity-80">Open-source platform alternative (hyperfy.xyz)</p>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span>Open-source and community-driven development</span>
+                            </li>
                             <li class="flex items-start gap-3">
                                 <span class="text-green-600">✓</span>
                                 <span>WebXR native - works in browser and VR headsets</span>
@@ -1216,40 +1279,11 @@
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="text-green-600">✓</span>
-                                <span>Avatar support via VRM models</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-green-600">✓</span>
                                 <span>Real-time multiplayer presence</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="text-green-600">✓</span>
-                                <span>No login required for viewers</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-white/50 p-8">
-                        <h4 class="font-bold text-xl mb-6">MONAVERSE</h4>
-                        <ul class="space-y-3 text-sm">
-                            <li class="flex items-start gap-3">
-                                <span class="text-green-600">✓</span>
-                                <span>NFT-native world ownership on Ethereum</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-green-600">✓</span>
-                                <span>Integrated marketplace for trading worlds</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-green-600">✓</span>
-                                <span>Professional infrastructure and uptime</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-green-600">✓</span>
-                                <span>Established community of collectors</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-green-600">✓</span>
-                                <span>Future-proof technology stack</span>
+                                <span>First three theaters built on Hyperfy v1</span>
                             </li>
                         </ul>
                     </div>
@@ -1275,8 +1309,8 @@
                             <span class="opacity-60">Global, instant</span>
                         </div>
                         <div class="p-4 bg-white/50">
-                            <div class="font-bold mb-1">PLATFORM</div>
-                            <span class="opacity-60">Agnostic</span>
+                            <div class="font-bold mb-1">CODE</div>
+                            <span class="opacity-60">Unlimited possibilities</span>
                         </div>
                     </div>
                 </div>
@@ -1976,7 +2010,6 @@
                     <div class="flex flex-wrap gap-3 mb-8">
                         <span class="px-3 py-1 border border-white/30 text-xs">VIRTUAL THEATER NO: 3</span>
                         <span class="px-3 py-1 border border-white/30 text-xs">HYPERFY</span>
-                        <span class="px-3 py-1 border border-white/30 text-xs">MONAVERSE</span>
                         <span class="px-3 py-1 border border-white/30 text-xs">~27 MIN</span>
                     </div>
                     <div class="flex gap-4">
@@ -2077,21 +2110,6 @@
                 "A key philosophical thread explores the authenticity of digital experiences and consciousness. The work questions whether programmed responses can evolve into genuine emotions, comparing current AI limitations with potential future developments. It deliberately maintains ambiguity about whether digital entities truly 'feel' or simply simulate emotions for effective interaction."
             </div>
 
-            <!-- NFT Integration -->
-            <div class="mt-24 p-8 bg-gradient-to-r from-purple-900/50 to-pink-900/50 border border-white/10">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h4 class="text-2xl font-mono-bold mb-4">BLOCKCHAIN INTEGRATION</h4>
-                        <p class="text-sm opacity-80">
-                            The project's relationship with blockchain technology through NFT minting of screen recordings, actors, and the entire world experience on Monaverse adds another layer of permanence and authenticity. This technological framework positions the work within current discussions about digital art ownership while looking forward to future developments in how we preserve and share digital theatrical experiences.
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <a href="https://monaverse.com/collections/8453/0xc9ee3a17f48c61795711968eb774241b7a5e63d2/1" target="_blank" class="btn-minimal bg-white text-black border-white hover:bg-transparent hover:text-white">View on Monaverse</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -2151,7 +2169,7 @@
                             <td class="py-4 px-4 font-bold">Platform</td>
                             <td class="py-4 px-4 opacity-70">Hyperfy</td>
                             <td class="py-4 px-4 opacity-70">Hyperfy</td>
-                            <td class="py-4 px-4 opacity-70">Hyperfy + Monaverse</td>
+                            <td class="py-4 px-4 opacity-70">Hyperfy</td>
                         </tr>
                     </tbody>
                 </table>
@@ -2274,9 +2292,6 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="text-center">
-                        <a href="https://monaverse.com" target="_blank" class="btn-minimal bg-white text-black border-white hover:bg-transparent hover:text-white">View Collections</a>
-                    </div>
                 </div>
             </div>
 
@@ -2395,8 +2410,8 @@
                     VIRTUAL THEATER ARCHIVE — EST. 2023
                 </div>
                 <div class="flex gap-8">
-                    <a href="https://monaverse.com" target="_blank" class="hover:opacity-100 transition">Monaverse</a>
                     <a href="https://hyperfy.io" target="_blank" class="hover:opacity-100 transition">Hyperfy</a>
+                    <a href="https://hyperfy.xyz" target="_blank" class="hover:opacity-100 transition">Hyperfy v2</a>
                 </div>
                 <div>
                     THE FUTURE IS NOT JUST VIRTUAL — IT IS ALIVE
@@ -2407,81 +2422,95 @@
     </footer>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const slider = document.getElementById('compare-slider');
-        const overlay = document.getElementById('comp-overlay');
-        const topImage = document.getElementById('top-image');
-        const handle = document.getElementById('comp-handle');
-        let isDown = false;
+        // Sayfadaki tüm sliderları bul
+        const sliders = document.querySelectorAll('.comparison-container');
 
-        // Üstteki resmin genişliğini container ile eşitleme fonksiyonu
-        // Bu sayede overlay küçülse bile resim squish (ezilme) olmaz.
-        function resizeTopImage() {
-            if(slider && topImage) {
-                topImage.style.width = slider.offsetWidth + 'px';
-            }
-        }
+        sliders.forEach(slider => {
+            // Slider içindeki elemanları seç (ID yerine class/tag ile)
+            const overlay = slider.querySelector('.comp-overlay');
+            // Overlay içindeki resmi bul (Üstteki resim)
+            const topImage = overlay.querySelector('img'); 
+            const handle = slider.querySelector('.comp-handle');
+            let isDown = false;
 
-        // Sayfa yüklendiğinde ve boyut değiştiğinde resmi ayarla
-        window.addEventListener('resize', resizeTopImage);
-        resizeTopImage(); // İlk açılış
-
-        // Hareketi Hesapla
-        function move(e) {
-            if (!isDown && e.type !== 'mousemove') return; // Sadece tıklıysa veya dokunuyorsa
-            
-            const rect = slider.getBoundingClientRect();
-            let clientX = e.clientX;
-            
-            // Mobil dokunmatik kontrolü
-            if (e.touches && e.touches.length > 0) {
-                clientX = e.touches[0].clientX;
+            // 1. Resim Genişliğini Sabitleme (Akordiyonu önler)
+            function resizeTopImage() {
+                if(slider && topImage) {
+                    // Üstteki resmin genişliği her zaman container kadar olsun
+                    topImage.style.width = slider.offsetWidth + 'px';
+                }
             }
 
-            // Slider içindeki X pozisyonu
-            let x = clientX - rect.left;
+            // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde çalıştır
+            window.addEventListener('resize', resizeTopImage);
+            resizeTopImage(); // Başlangıçta çalıştır
+
+            // 2. Hareket Fonksiyonu
+            function move(e) {
+                if (!isDown && e.type !== 'mousemove') return;
+
+                const rect = slider.getBoundingClientRect();
+                let clientX = e.clientX;
+
+                // Mobil dokunmatik desteği
+                if (e.touches && e.touches.length > 0) {
+                    clientX = e.touches[0].clientX;
+                }
+
+                let x = clientX - rect.left;
+
+                // Sınırları belirle
+                if (x < 0) x = 0;
+                if (x > rect.width) x = rect.width;
+
+                // CSS güncelle
+                overlay.style.width = x + 'px';
+                handle.style.left = x + 'px';
+            }
+
+            // --- Event Listeners ---
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                move(e);
+            });
+
+            // Mouse slider dışına çıksa bile takibi bırakmasın diye window'a ekledik
+            window.addEventListener('mouseup', () => { isDown = false; });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                move(e);
+            });
+
+            // Mobil Eventler
+            slider.addEventListener('touchstart', (e) => {
+                isDown = true;
+                move(e);
+            });
+            slider.addEventListener('touchend', () => { isDown = false; });
+            slider.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                move(e);
+            });
             
-            // Sınırları belirle (taşmasın)
-            if (x < 0) x = 0;
-            if (x > rect.width) x = rect.width;
-
-            // Overlay genişliğini ve handle konumunu güncelle
-            overlay.style.width = x + 'px';
-            handle.style.left = x + 'px';
-        }
-
-        // --- Event Listeners ---
-
-        // Mouse (Masaüstü)
-        slider.addEventListener('mousedown', (e) => { 
-            isDown = true; 
-            move(e); 
-        });
-        window.addEventListener('mouseup', () => { isDown = false; });
-        
-        // Mouse ile üzerine gelince de hareket etsin (isteğe bağlı, şu an tıklama gerektirir)
-        // Eğer tıklamadan hareket etsin istersen aşağıdaki 'mousemove' kısmındaki !isDown kontrolünü kaldır.
-        slider.addEventListener('mousemove', (e) => {
-            if(!isDown) return; 
-            move(e);
-        });
-
-        // Touch (Mobil)
-        slider.addEventListener('touchstart', (e) => {
-            isDown = true;
-            move(e);
-        });
-        slider.addEventListener('touchend', () => { isDown = false; });
-        slider.addEventListener('touchmove', (e) => {
-            if(!isDown) return;
-            move(e);
-            // Mobilde sayfanın kaymasını engellemek için (gerekirse açabilirsin):
-            // e.preventDefault(); 
+            // Tıklayınca gitmesi için (Opsiyonel)
+            slider.addEventListener('click', (e) => {
+                if(e.target !== handle) {
+                    const rect = slider.getBoundingClientRect();
+                    let clientX = e.clientX; 
+                    let x = clientX - rect.left;
+                    if (x < 0) x = 0; 
+                    if (x > rect.width) x = rect.width;
+                    overlay.style.width = x + 'px';
+                    handle.style.left = x + 'px';
+                }
+            });
         });
     });
 </script>
 </body>
 </html>
-
 
 
 
